@@ -16,7 +16,7 @@
                     <b>No. of Players: </b><%=game.playersMin; %> to <%=game.playersMax; %></br>
                     <b>Weight/Complexity: </b><%=game.weight; %></br>
                     <b>Rating: </b><%=game.rating; %></br>
-                    <b>Tags: </b><%=tag.name %></br>
+                    <b>Tags: </b><%=game.tags.name %></br>
 
                     <!-- Edit Button -->
                     <form action="/games/<%=game.id; %>/edit">

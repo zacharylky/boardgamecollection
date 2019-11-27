@@ -52,6 +52,33 @@ router.get("/seed", async (req, res) => {
   }
 });
 
+router.get("/seed/tags", async (req, res) => {
+  const newTags = [
+    {
+      name: "Competitive"
+    },
+    {
+      name: "Cooperative"
+    },
+    {
+      name: "Semi-Cooperative"
+    },
+    {
+      name: "Solitaire"
+    },
+    {
+      name: "Social Deduction"
+    }
+  ];
+
+  try {
+    const seedTags = await Tag.create(newTags);
+    res.send(seedTags);
+  } catch (err) {
+    res.send(err.message);
+  }
+});
+
 // New route
 router.get("/new", (req, res) => {
   Tag.find({}, (err, allTags) => {
@@ -94,7 +121,7 @@ router.get("/api", (req, res) => {
 
 //Show route
 router.get("/:id", (req, res) => {
-  Game.findById(req.params.id, (err, foundGame) => {
+  /*Game.findById(req.params.id, (err, foundGame) => {
     // console.log(foundGame);
     // res.render("show.ejs", {
     //   game: foundGame
@@ -108,7 +135,14 @@ router.get("/:id", (req, res) => {
         tag: foundTag
       });
     });
-  });
+  });*/
+  Game.findById(req.params.id)
+    .populate("tags")
+    .exec((err, foundGame) => {
+      res.render("show.ejs", {
+        game: foundGame
+      });
+    });
 });
 
 //Delete route
