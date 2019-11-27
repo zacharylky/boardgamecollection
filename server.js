@@ -8,7 +8,8 @@ const db = mongoose.connection;
 // Port
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost:27017/boardgames";
+  process.env.MONGODB_URI ||
+  "mongodb+srv://zacharylky:ragnarock1@cluster0-l0lis.mongodb.net/test?retryWrites=true&w=majority";
 
 //Database
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
