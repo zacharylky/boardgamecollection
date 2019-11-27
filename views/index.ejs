@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partial/head.ejs %>
+  </head>
+  <body>
+    <h1>My Collection</h1>
+    <nav style="text-align: center;">
+        <a href="/games/new">Add a new Game to your Collection</a>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <% for(let i = 0; i < games.length; i++){ %>
+                <div class="smallerContainer card">
+                    <%= games[i].name; %></br>
+                    <a href="games/<%= games[i].id; %>"> 
+                    <img src="<%= games[i].img; %>"></a></br>
+                    Rating: <%= games[i].rating; %></br>
+                </div>
+            <% } %>
+        </div>
+    </div>
+  </body>
+</html>

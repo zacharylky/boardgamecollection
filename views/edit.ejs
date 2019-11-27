@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <% include ./partial/head.ejs %>
+    </head>
+    <body>
+        <h1>Edit Board Game Page</h1>
+        <div class = "container showP">
+            <form action="/games/<%=game.id%>?_method=PUT" method="POST">
+                Name: <input type="text" name="name" value="<%=game.name%>"/><br/>
+                Description: <input type="textarea" name="description" size="50" value="<%=game.description%>"/><br/>
+                playersMin: <input type="number" name="playersMin" value="<%=game.playersMin%>"/><br/>
+                playersMax: <input type="number" name="playersMax" value="<%=game.playersMax%>"/><br/>
+                Weight/Complexity: <input type="number" name="weight" value="<%=game.weight%>"/><br/>
+                Rating: <input type="number" name="rating" value="<%=game.rating%>"/><br/>
+                Image: <input type="url" name="img" size="100" value="<%=game.img%>" /> </br>
+
+                <input type="submit" name="" value="Submit Changes"/>
+            </form>
+        </div>
+
+    </body>
+    <footer>
+    </footer>
+</html>

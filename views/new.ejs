@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partial/head.ejs %>
+  </head>
+  <body>
+    <h1>Add a New Board Game</h1>
+    <form action="/games" method="POST">
+        Name: <input type="text" name="name"/><br/>
+        Description: <input type="textarea" name="description" size="50" /><br/>
+        playersMin: <input type="number" name="playersMin" /><br/>
+        playersMax: <input type="number" name="playersMax"/><br/>
+        Weight/Complexity: <input type="number" name="weight" step=".01"/><br/>
+        Rating: <input type="number" name="rating" step=".01"/><br/>
+        Image: <input type="url" name="img" size="100" /> </br>
+        Tags: <select name="tags" id="tags">
+          <% for(let i = 0; i < tags.length; i++){ %>
+          <option value="<%= tags[i]._id %>"><%= tags[i].name %></option>
+          <%}%>
+        </select>
+      <input type="submit" name="" value="Add Game" />
+    </form>
+    <a href="/games">Back</a>
+  </body>
+  <footer></footer>
+</html>
